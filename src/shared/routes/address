@@ -1,0 +1,32 @@
+from fastapi import FastAPI
+from typing import List
+from pydantic import BaseModel
+from typing import Optional
+
+
+
+app = FastAPI()
+
+@app.get("/")
+async def bem_vinda():
+    site = "Seja bem vindo(a)"
+    return site.replace('\n', '')
+
+
+
+####Cadastrar os endereços do usuário######################################### 
+@app.put("/client/{email_client}/address/")
+async def create_address(email_client: str, address: Endereco):
+    return regras_criar_endereco(id_usuario, endereco)
+
+
+####Retornar lista de endereços do usuário######################################### 
+@app.get("/usuario/{id_usuario}/enderecos/")
+async def retornar_enderecos_do_usuario(id_usuario: int):
+    return regras_retornar_enderecos_do_usuario(id_usuario)
+
+
+####Deletar endereço pelo seu id######################################### 
+@app.delete("/endereco/{id_endereco}/")
+async def deletar_endereco(id_endereco: int):
+    return persistencia_deletar_endereco(id_endereco)

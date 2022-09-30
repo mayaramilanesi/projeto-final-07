@@ -1,0 +1,23 @@
+ GET http://localhost:8000
+
+ ###
+ # Adicionar endereços ao usuário
+PUT http://localhost:8000/usuario/2/endereco
+
+{
+      "id": 2,      
+      "rua": "Mayara",
+      "cep": "123456",
+      "cidade": "Bauru",
+      "estado": "sp"
+}
+
+
+###
+# Buscar endereços de um usuário
+GET http://localhost:8000/usuario/2/enderecos
+
+
+###
+# Deletar endereço pelo seu id
+DELETE http://localhost:8000/endereco/2
