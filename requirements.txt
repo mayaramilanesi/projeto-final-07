@@ -1,0 +1,5 @@
+fastapi
+fastapi-mail
+uvicorn
+pydantic
+motor
