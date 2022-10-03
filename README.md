@@ -5,12 +5,12 @@
 <h3 align="center"> Descrição: Repositório criado para o projeto final do bootcamp Luiza Code 5a edição, promovido pela Luiza Labs (Magalu)</h3>
 
 
-<strong>1. Requisitos para execução da aplicação: </strong>
+<h3>1. Requisitos para execução da aplicação: </h3>
 - Instalar <a href="https://www.python.org/downloads/">Python 3</a> 
 - Instalar Visual Studio Code
 
 
-<strong> 2. Como executar a aplicação</strong>
+<h3> 2. Como executar a aplicação</h3>
  - Clonar repositório
  - Copiar SSH ou HTTPS do repositório
 
@@ -32,3 +32,7 @@ Dentro da pasta onde foi clonado o repositório, execute o comando no terminal
 <br> Linux: 
 
 <strong>3. Desenvolvido por:</strong>
+Isabela Caldeira
+Mayara Milanesi
+Mayara Simões
+Renata
