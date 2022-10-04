@@ -1,5 +1,7 @@
+# Criar uma rota para cada arquivo?
+
 from fastapi import APIRouter
-import regras
+import src.domain.address.controllers.regras as regras
 
 rota_address = APIRouter(
     # Prefixo para o caminho da rota

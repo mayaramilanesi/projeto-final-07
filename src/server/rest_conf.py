@@ -1,3 +1,5 @@
+# Quando avançarmos, verificar arquivo rest_conf do Ozair
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 

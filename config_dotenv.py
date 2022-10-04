@@ -9,7 +9,11 @@ class Configuracao(BaseSettings):
 #1. Variáveis de ambiente
 #2. Arquivo.env na raiz do projeto
 
-def carregar_configuracoes():
+def iniciar_configuracao():
       load_dotenv()
-      configuracao = Configuracao()
-      return configuracao
+      return Configuracao()
+
+
+
+configuracao = iniciar_configuracao()
+      

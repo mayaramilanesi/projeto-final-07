@@ -1,9 +1,17 @@
-from src.server.database import (conectar_cliente_mongo, acessar_colecao)
+"""
+Este módulo conversa com Mongo para inserir, atualizar, remover
+e pesquisar no MongoDB.
+"""
+
+from src.server.database_conexão_mongo import obter_colecao
 
 
 NOME_COLECAO = "address"
 
-COLECAO_ADDRESS = acessar_colecao(conectar_cliente_mongo(), NOME_COLECAO)
+COLECAO_ADDRESS = obter_colecao("address")
+
+
+# No arquivo musicas_persistencia do Ozair tem vários exemplos de funções para trabalhar com o mongo
 
 async def pesquisar_todos_os_enderecos():
       lista_enderecos = []
