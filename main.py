@@ -1,7 +1,7 @@
-import asyncio
 
-from src.controllers.address import address_crud
+from src.server.rest_conf import criar_aplicacao_fastapi
 
 
-loop = asyncio.get_event_loop()
-loop.run_until_complete(address_crud())
+# Criando minha aplicação FastAPI e deixando-a 'global'.
+# Este `app` será 'chamado' pelo uvicorn. 
+app = criar_aplicacao_fastapi()
