@@ -35,4 +35,4 @@ Dentro da pasta onde foi clonado o repositório, execute o comando no terminal
 Isabela Caldeira
 Mayara Milanesi
 Mayara Simões
-Renata
+Renata Perez

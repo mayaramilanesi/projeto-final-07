@@ -1,22 +1,18 @@
-from pydantic import BaseModel, Field 
+from pydantic import BaseModel, Field, conint, condecimal
 from typing import Optional
 
 
 class ProductSchema(BaseModel):
     name: str = Field(
-        unique=True, 
-        max_length=100)
+        unique=True)
     
     description: str
-    price: float= Field(
-        min=0.01)
+    price: condecimal(ge = 0.01,
+    decimal_places=2)
     image: str
-    code: str 
+    code: str=Field()
     category: str
-    inventory: int=Field(
-        min=1)
-    
-    Field(unique=True)
+    inventory: conint(gt=1)
     
 class ProductUpdatedSchema(BaseModel):
     name: Optional[str]
