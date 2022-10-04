@@ -1,7 +1,4 @@
-import asyncio
 
-from src.controllers.address import address_crud
+from src.server.rest_conf import criar_aplicacao_fastapi
 
-
-loop = asyncio.get_event_loop()
-loop.run_until_complete(address_crud())
+app = criar_aplicacao_fastapi()
