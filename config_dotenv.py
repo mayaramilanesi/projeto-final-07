@@ -3,7 +3,7 @@ from pydantic import BaseSettings
 
 # classe representando nossas configurações
 class Configuracao(BaseSettings):
-      database_uri = str
+      database_uri="sua connection string"
 
 # Carrega as variáveis na seguinte ordem:
 #1. Variáveis de ambiente

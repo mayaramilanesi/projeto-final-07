@@ -1,7 +1,5 @@
-from src.domain.product.models.get_product_by_name import get_product_by_name
 #from fastapi import HTTPException, status
 from src.server.database import db
-from src.domain.schemas.product_schema import ProductSchema
 from pydantic import ValidationError
 
 async def create_product(product_collection, product):
@@ -12,7 +10,9 @@ async def create_product(product_collection, product):
         # if product_searched == None:
         new_product = await product_collection.insert_one(product)
         if new_product.inserted_id:
-                return {'mensagem': 'product successfully created'}
+            return new_product
+        else:
+            return None
     except ValidationError as e:
         return {f'create_product_error', {e}}   
     except ValueError:

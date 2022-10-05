@@ -3,7 +3,7 @@ Este módulo conversa com Mongo para inserir, atualizar, remover
 e pesquisar no MongoDB.
 """
 
-from src.server.database_conexão_mongo import obter_colecao
+from server.database_conexao_mongo import obter_colecao
 
 
 NOME_COLECAO = "address"

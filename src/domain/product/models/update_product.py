@@ -1,4 +1,3 @@
-from src.domain.schemas.product_schema import ProductUpdatedSchema
 from bson.objectid import ObjectId
 
 async def update_product(product_collection, product_id, product_data):
