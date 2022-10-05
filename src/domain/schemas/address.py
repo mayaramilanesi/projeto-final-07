@@ -1,18 +1,23 @@
 from typing import List
 from pydantic import BaseModel, Field
+from bson.objectid import ObjectId
 
-from src.schemas.user import UserSchema
+from src.domain.schemas import ClientSchema
 
 
 class Address(BaseModel):
+    _id: ObjectId()
     street: str
-    cep: str
+    number: int
+    complement: str
     district: str
+    cep: str
     city: str
     state: str
     is_delivery: bool = Field(default=True)
 
 
 class AddressSchema(BaseModel):
-    user: "_id"
+    user: ClientSchema["_Id"]
     address: List[Address] = []
+    

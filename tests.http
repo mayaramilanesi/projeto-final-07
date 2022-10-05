@@ -1,0 +1,22 @@
+GET http://localhost:8000
+
+
+###
+# Adicionar endereços ao usuário
+POST http://localhost:8000/endereco
+
+{
+      "user": "Mayara Milanesi",
+      "address": {
+            "_id": "ObjectId()",
+            "street": "str",
+            "number": "int",
+            "complement": "str",
+            "district": "str",
+            "cep": "str",
+            "city": "str",
+            "state": "str",
+            "is_delivery": "bool = Field(default=True)"
+}
+
+

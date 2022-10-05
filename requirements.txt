@@ -17,3 +17,5 @@ uvicorn==0.18.3
 watchfiles==0.17.0
 websockets==10.3
 dnspython==2.2.1
+fastapi-mail
+python-dotenv==0.21.0
