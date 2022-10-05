@@ -1,23 +1,28 @@
 # Criar uma rota para cada arquivo?
 
 from fastapi import APIRouter
-import src.domain.address.controllers.regras as regras
+from src.domain.address.controllers.create_address import create_address
 
-rota_address = APIRouter(
-    # Prefixo para o caminho da rota
-    prefix="/api/address"
+route_address = APIRouter(
+    prefix="/api/address",
+    tags=["Address"]
 )
 
 
-@rota_address.post("/")
-async def criar_novo_endereco(endereco: dict):
+@route_address.post(
+    "/", 
+    response_model=str, 
+    summary="Criação de um novo endereço.", 
+    description="Rota para a criação de um novo endereço, verificando se há ou não a existência de um usuário antes"
+    )
+async def create_address(endereco: dict):
     print("Salvar novo endereço, endereco")
     return {
         "endereco": endereco
     }
     
     
-@rota_address.get("/{codigo}")
+""" @rota_address.get("/{codigo}")
 async def pesquisar_address_pelo_codigo(codigo: str):
     print("Pesquisar pelo codigo", codigo)
     address = await regras.pesquisar_pelo_codigo()
@@ -29,4 +34,4 @@ async def pesquisar_address_pelo_codigo(codigo: str):
 async def pesquisar_todos_enderecos():
     print("Pesquisar todos os endereços")
     lista = await regras.pesquisar_todos()
-    return lista
+    return lista """

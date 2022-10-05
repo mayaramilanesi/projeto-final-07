@@ -1,10 +1,9 @@
-from src.domain.address.models.get_address_by_email import delete_address
+from src.domain.address.controllers.get_all_address import get_all_address
 import asyncio
+from src.server.database_conexão_mongo import db
 
-async def testar():
-      lista = await delete_address()
-      print(lista)
       
+address_collection = db.address_collection
 
-#asyncio.run(testar())
-asyncio.get_event_loop().run_ultil_complete
+loop = asyncio.get_event_loop()
+loop.run_until_complete(get_all_address(address_collection))
