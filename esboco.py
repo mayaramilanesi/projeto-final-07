@@ -1,8 +1,8 @@
-from domain.address.models.acessar_bd import pesquisar_todos_os_enderecos
+from src.domain.address.models.get_address_by_email import delete_address
 import asyncio
 
 async def testar():
-      lista = await pesquisar_todos_os_enderecos()
+      lista = await delete_address()
       print(lista)
       
 
