@@ -27,4 +27,5 @@ async def create_product(product):
             return {'error message': 'price must be a number greater than R$0.01'}
         elif product['inventory'] == 0:
             return {'error message': 'inventory must be value greater than 0'}
+    
     await disconnect_db()
