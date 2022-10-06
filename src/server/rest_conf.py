@@ -4,16 +4,17 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from src.shared.routes.index import rota_principal
+from src.shared.routes.rota_products import rota_products
 """ from src.shared.routes.address import rota_address
 from src.shared.routes.clients import rota_clients
-from src.shared.routes.products import rota_products
+
 from src.shared.routes.cart import rota_cart """
 
 def configurar_rotas(app: FastAPI):
       app.include_router(rota_principal)
+      app.include_router(rota_products)
 """       app.include_router(rota_address)
       app.include_router(rota_clients)
-      app.include_router(rota_products)
       app.include_router(rota_cart) """
 
 def configurar_api_rest(app: FastAPI):
@@ -29,8 +30,8 @@ def configurar_api_rest(app: FastAPI):
 
 def criar_aplicacao_fastapi():
       app = FastAPI(
-            title="Loja de Joias e Bijouterias",
-            version="01"
+            title="Badulaques da Lu",
+            version="1.0.0"
       )
       
       
