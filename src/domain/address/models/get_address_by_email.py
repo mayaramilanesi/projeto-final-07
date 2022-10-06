@@ -1,6 +1,5 @@
-from src.domain.schemas.address import Addressschema
 
-from src.server.database_conexão_mongo import connect_db, db, disconnect_db
+from src.server.database import connect_db, db, disconnect_db
 
 async def get_address_by_email(address_collection, email):
 	try:

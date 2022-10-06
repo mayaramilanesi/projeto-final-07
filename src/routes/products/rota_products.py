@@ -1,7 +1,7 @@
 
 from fastapi import APIRouter
 
-from domain.schemas.product import ProductSchema, ProductUpdatedSchema
+from src.domain.schemas.product import ProductSchema, ProductUpdatedSchema
 from src.domain.products.service import service_create_new_product, service_update_product, service_delete_product, service_get_all_products, service_get_product_by_category, service_get_product_by_code, service_validate_product
 
 rota_products = APIRouter(

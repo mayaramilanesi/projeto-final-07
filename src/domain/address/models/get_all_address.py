@@ -1,4 +1,4 @@
-from src.server.database_conexão_mongo import connect_db, db, disconnect_db
+from src.server.database import connect_db, db, disconnect_db
 
 async def get_all_address(address_collection):
       try:

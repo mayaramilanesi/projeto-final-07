@@ -1,5 +1,5 @@
 from src.domain.products.models.create_product import create_product
-from domain.schemas.product import ProductSchema
+from src.domain.schemas.product import ProductSchema
 
 
 

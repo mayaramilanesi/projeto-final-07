@@ -2,7 +2,7 @@ from bson.objectid import ObjectId
 from src.domain.schemas.address import AddressSchema
 from pprint import pprint
 
-from src.server.database_conexão_mongo import connect_db, db, disconnect_db
+from src.server.database import connect_db, db, disconnect_db
 
 async def create_new_address(address_collection, address: AddressSchema):
     try:
