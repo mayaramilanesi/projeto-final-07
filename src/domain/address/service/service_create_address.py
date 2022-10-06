@@ -10,19 +10,12 @@ from src.domain.address.models.add_new_address import add_new_address
 
 
 async def create_address(address_collection, address, email):
-      await connect_db()
-      
-      address_collection = db.address_collection
 
       address_user = await get_address_by_email(address_collection, email)
 
       if not address_user:
             result = await create_new_address(address_collection, address)
-            pprint(result)
+            return result
       else:
             result = await add_new_address(address_collection, address)
-            pprint(result)
-            
-            
-      await disconnect_db()
-            
+            return result

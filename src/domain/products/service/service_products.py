@@ -1,5 +1,5 @@
 from typing import List
-from src.domain.schemas.product_schema import ProductSchema, ProductUpdatedSchema
+from domain.schemas.product import ProductSchema, ProductUpdatedSchema
 from src.domain.product.models.get_all_products import get_all_products
 from src.domain.product.models.get_product_by_name import get_product_by_name
 from src.domain.product.models.get_product_by_code import get_product_by_code

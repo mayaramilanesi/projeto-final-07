@@ -10,10 +10,8 @@ async def create_product(product):
         product["price"] = Decimal128(product["price"])     
         new_product = await product_collection.insert_one(product)
         if new_product.inserted_id:
-            await disconnect_db()
             return True
         else:
-            await disconnect_db()
             return False
     
     except ValidationError as e:

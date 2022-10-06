@@ -1,9 +1,8 @@
-from os import environ
 from motor.motor_asyncio import AsyncIOMotorClient
 
 class DataBase:
     client: AsyncIOMotorClient = None
-    database_uri="DATABASE_URI"
+    database_uri="mongodb+srv://mayaramilanesi:senhatlas@luizacode.egyfnn1.mongodb.net/?retryWrites=true&w=majority"
     users_collection = None
     address_collection = None
     product_collection = None
@@ -25,7 +24,6 @@ async def connect_db():
     db.address_collection = db.client.teste.address
     db.product_collection = db.client.teste.products
     db.order_collection = db.client.teste.orders
-    db.order_items_collection = db.client.teste.order_items
 
 async def disconnect_db():
     db.client.close()

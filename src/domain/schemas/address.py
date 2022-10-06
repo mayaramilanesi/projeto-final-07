@@ -2,7 +2,6 @@ from typing import List
 from pydantic import BaseModel, Field
 from bson.objectid import ObjectId
 
-from src.domain.schemas import ClientSchema
 
 
 class Address(BaseModel):
@@ -18,6 +17,6 @@ class Address(BaseModel):
 
 
 class AddressSchema(BaseModel):
-    user: ClientSchema["_Id"]
+    user: str
     address: List[Address] = []
     
