@@ -7,14 +7,12 @@ from src.domain.product.models.create_product import create_product
 from src.domain.product.models.update_product import update_product
 from src.domain.product.models.delete_product import delete_product
 from src.domain.product.models.get_products_by_category import get_products_by_category
-
+from bson.objectid import ObjectId
 
 
 from src.server.database import db, connect_db, disconnect_db 
 
-async def service_validate_product(product_collection, product: ProductSchema):
-    
-    await connect_db()
+async def service_validate_product( product: ProductSchema):
     
     product = product.dict()
     product_searched = await get_product_by_name(db.product_collection, product["name"])
@@ -22,7 +20,7 @@ async def service_validate_product(product_collection, product: ProductSchema):
     if product_searched:
         return False
  
-    new_product = await create_product(product_collection, product)
+    new_product = await create_product(product)
     if new_product == None:
         return {'message': 'Create product error' }
     return new_product
@@ -30,19 +28,17 @@ async def service_validate_product(product_collection, product: ProductSchema):
 
     
     
-async def service_create_new_product(product_collection, product: ProductSchema):
+async def service_create_new_product(product: ProductSchema):
     product_dict = product.dict()
-    result = await create_product(product_collection, product_dict)
-    if result == True:
-        return {'mensagem': 'product successfully created'}
-    return False
+    #Validacoes de Produto....
+    result = await create_product(product_dict)
+    return result
 
 
 async def service_get_product_by_code(product_code):
     product = await get_product_by_code(product_code)
-    if product is None:
-        return False
-    return True
+    product.pop("_id")
+    return product
 
 async def service_get_product_by_category(product_collection, product_category):
     products_list = []

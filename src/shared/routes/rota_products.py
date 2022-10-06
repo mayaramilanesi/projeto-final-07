@@ -10,14 +10,18 @@ rota_products = APIRouter(
 )
 
 
-@rota_products.post("/product", tags=["Product"])
+@rota_products.post("/new", tags=["Product"])
 async def create_new_product(product: ProductSchema):
-    await service_create_new_product(product)
-    
+    result = await service_create_new_product(product)
+    if result == True:
+        return {'mensagem': 'product successfully created'}
+    else:
+        return {'mensagem': 'create new product failed'}
+
         
-@rota_products.get("/{codigo}",tags=["Product"])
-async def get_product_by_code(product_code: str):
-    product_searched = await service_get_product_by_code(product_code)
+@rota_products.get("/{code}",tags=["Product"])
+async def get_product_by_code(code: str):
+    product_searched = await service_get_product_by_code(code)
     if product_searched == False:
         return {f'message': 'Product not found'}
     else:
