@@ -13,9 +13,9 @@ from src.shared.routes.cart import rota_cart """
 def configurar_rotas(app: FastAPI):
       app.include_router(rota_principal)
       app.include_router(rota_products)
-"""       app.include_router(rota_address)
+      app.include_router(rota_address)
       app.include_router(rota_clients)
-      app.include_router(rota_cart) """
+      app.include_router(rota_cart)
 
 def configurar_api_rest(app: FastAPI):
       app.add_middleware(

@@ -13,6 +13,6 @@ async def get_address_by_email(address_collection, email):
       address_collection = db.address_collection
 
       address_user = await get_address_by_email(address_collection, email)
-      pprint(address_user)
+      return address_user
 
       await disconnect_db()

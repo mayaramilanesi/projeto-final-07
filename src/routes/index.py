@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 
 from src.domain.product.controller.product_service import service_create_new_product
-from src.domain.schemas.product_schema import ProductSchema, ProductUpdatedSchema
+from domain.schemas.product import ProductSchema, ProductUpdatedSchema
 rota_principal = APIRouter(
     # Prefixo para o caminho da rota
     prefix="",
