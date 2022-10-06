@@ -1,18 +1,18 @@
+
 from src.domain.products.models.get_product_by_name import get_product_by_name
-from src.domain.schemas.product import ProductSchema
+from src.domain.products.models.get_product_by_code import get_product_by_code
 
 
 
-async def service_validate_product(product: ProductSchema):
-    
-    product = product.dict()
-    product_searched = await get_product_by_name(db.product_collection, product["name"])
-    
+#Validar se já existe product com o nome 
+async def service_validate_product_name(product_name):
+    product_searched = await get_product_by_name(product_name)
     if product_searched:
-        return False
- 
-    new_product = await create_product(product)
-    if new_product == None:
-        return {'message': 'Create product error' }
-    return new_product
-    
+        return True
+    return False
+
+async def service_validate_product_code(product_code):
+    product_searched = await get_product_by_code(product_code)
+    if product_searched:
+        return True
+    return False

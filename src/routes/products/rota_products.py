@@ -1,8 +1,14 @@
 
 from fastapi import APIRouter
 
-from domain.schemas.product import ProductSchema, ProductUpdatedSchema
-from src.domain.products.service import service_create_new_product, service_update_product, service_delete_product, service_get_all_products, service_get_product_by_category, service_get_product_by_code, service_validate_product
+from src.domain.schemas.product import ProductSchema, ProductUpdatedSchema
+from src.domain.products.service.service_get_product_by_code import service_get_product_by_code
+from src.domain.products.service.service_create_new_product import service_create_new_product
+from src.domain.products.service.service_get_product_by_category import get_products_by_category
+from src.domain.products.service.service_update_product import service_update_product
+from src.domain.products.service.service_get_all_products import service_get_all_products
+from src.domain.products.service.service_delete_product import service_delete_product
+
 
 rota_products = APIRouter(
     # Prefixo para o caminho da rota
