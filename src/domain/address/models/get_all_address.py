@@ -1,17 +1,19 @@
 from src.server.database import connect_db, db, disconnect_db
 
-async def get_all_address(address_collection):
+async def get_all_address():
       try:
             
             await connect_db()
             address_collection = db.address_collection
             
-            address = await address_collection.find({})
+            all_address = await address_collection.find({})
 
-            if address:
-                  return address
+            if all_address:
+                  return all_address
+            else:
+                  return False
             
-            await disconnect_db()
-
       except Exception as e:
             print(f'find_address.error: {e}')
+            
+      await disconnect_db()
