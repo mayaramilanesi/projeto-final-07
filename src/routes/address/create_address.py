@@ -5,10 +5,10 @@ from src.domain.address.service.service_create_address import service_create_add
 from src.domain.address.service.service_get_all_address import service_get_all_address
 from src.domain.schemas.address import AddressSchema, Address
 
-route_address = APIRouter(
-    prefix="/api/address",
-    tags=["Address"]
-)
+# route_address = APIRouter(
+#     prefix="/api/address",
+#     tags=["Address"]
+# )
 
 
 @route_address.post(

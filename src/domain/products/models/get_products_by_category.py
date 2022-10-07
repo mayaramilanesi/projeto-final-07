@@ -1,10 +1,24 @@
+from src.server.database import connect_db, db, disconnect_db
 
-from pprint import pprint
-async def get_products_by_category(product_collection, product_category, skip, limit):
+
+async def get_products_by_category(product_category, skip=0, limit=2):
     try:
+        await connect_db()
+        
+        product_collection = db.product_collection 
+
         products_cursor = product_collection.find({"category": product_category}).skip(int(skip)).limit(int(limit))
         products = await products_cursor.to_list(length=int(limit))
-        for document in products:
-            pprint(document)
+        
+        if len(products) == 0:
+            return False
+        for product in products:
+            product.pop("_id")
+            product['price'] = str([product['price']])
+        return products
+                     
     except Exception as e:
-        print(f'get_products_by_category.error: {e}')       
+        return (f'get_products_by_category.error: {e}')       
+    
+    finally:
+        await disconnect_db()

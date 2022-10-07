@@ -14,16 +14,7 @@ async def create_product(product):
         else:
             return False
     
-    except ValidationError as e:
-        return {f'create_product_error', {e}}  
-     
-    except ValueError:
-        return {'error message': 'invalid input'}
-    
-    except AttributeError:
-        if product['price'] < 0.01:
-            return {'error message': 'price must be a number greater than R$0.01'}
-        elif product['inventory'] == 0:
-            return {'error message': 'inventory must be value greater than 0'}
-    
-    await disconnect_db()
+    except Exception:
+        raise Exception("Internal error failure")  
+    finally:
+        await disconnect_db()
