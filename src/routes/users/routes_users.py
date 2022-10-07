@@ -1,6 +1,5 @@
 
 from fastapi import APIRouter
-
 from src.domain.schemas.user import UserSchema
 from src.domain.users.service import service_create_user, service_get_user_by_email
 

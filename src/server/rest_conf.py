@@ -4,10 +4,10 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from src.routes.index import routes_principal
+
 from src.routes.products.routes_products import routes_products
 from src.routes.address.routes_address import routes_address
 from src.routes.users.routes_users import routes_users
-
 
 
 def configurar_rotas(app: FastAPI):
@@ -15,6 +15,7 @@ def configurar_rotas(app: FastAPI):
       app.include_router(routes_products)
       app.include_router(routes_address)
       app.include_router(routes_users)
+      
       
 def configurar_api_rest(app: FastAPI):
       app.add_middleware(

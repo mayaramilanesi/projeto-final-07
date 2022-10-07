@@ -9,7 +9,6 @@ from src.domain.products.service.service_update_product import service_update_pr
 from src.domain.products.service.service_get_all_products import service_get_all_products
 from src.domain.products.service.service_delete_product import service_delete_product
 
-
 routes_products = APIRouter(
     # Prefixo para o caminho da rota
     prefix="/api/products", tags=["Products"]
@@ -57,8 +56,8 @@ async def find_all_products():
     return result
 
 
-
 @routes_products.get("/category/{category}")
+
 async def get_products_by_category(category: str):
     result = await service_get_product_by_category(category)
     if result == False:

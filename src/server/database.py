@@ -2,7 +2,11 @@ from motor.motor_asyncio import AsyncIOMotorClient
 
 class DataBase:
     client: AsyncIOMotorClient = None
+<<<<<<< HEAD
     database_uri="mongodb+srv://maysimoes:151220@luizacode.pj0rydf.mongodb.net/teste"
+=======
+    database_uri="mongodb+srv://mayaramilanesi:senhatlas@luizacode.egyfnn1.mongodb.net/?retryWrites=true&w=majority"
+>>>>>>> 226cfc32e5ffacbccf83a36634d240c150609fcc
     users_collection = None
     address_collection = None
     products_collection = None
@@ -20,10 +24,11 @@ async def connect_db():
         tls=True,
         tlsAllowInvalidCertificates=True
     )
-    db.users_collection = db.client.luizare.clients
+
+    db.users_collection = db.client.luizare.users
     db.address_collection = db.client.luizare.address
     db.products_collection = db.client.luizare.products
-    db.carts_collection = db.client.luizare.cart
+    db.carts_collection = db.client.luizare.carts
 
 async def disconnect_db():
     db.client.close()
