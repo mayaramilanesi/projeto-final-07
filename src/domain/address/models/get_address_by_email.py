@@ -1,8 +1,7 @@
-from src.domain.schemas.address import Addressschema
 
-from src.server.database_conexão_mongo import connect_db, db, disconnect_db
+from src.server.database import connect_db, db, disconnect_db
 
-async def get_address_by_email(address_collection, email):
+async def get_address_by_email(email):
 	try:
 		await connect_db()
 		address_collection = db.address_collection()
@@ -24,12 +23,15 @@ async def get_address_by_email(address_collection, email):
 			}
 		])
 
-		return await user_address.to_list(1)
-
-		await disconnect_db()
+		if user_address:
+			return await user_address.to_list(1)
+		else:
+			return False
 
 	except Exception as e:
 		print(f'get_address.error: {e}') 
+  
+	await disconnect_db()
   
   
  

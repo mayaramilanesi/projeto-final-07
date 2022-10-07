@@ -1,8 +1,9 @@
 # Criar uma rota para cada arquivo?
 
-# from fastapi import APIRouter
-# from domain.address.controllers.service_get_all_address import get_all_address
-# from src.domain.schemas.address import AddressSchema
+from fastapi import APIRouter
+from src.domain.address.service.service_get_all_address import get_all_address
+from src.domain.schemas.address import AddressSchema
+
 
 # route_address = APIRouter(
 #     prefix="/api/address",

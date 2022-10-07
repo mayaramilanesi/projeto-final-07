@@ -20,3 +20,6 @@ class AddressSchema(BaseModel):
     user: str
     address: List[Address] = []
     
+class EmailSchema(BaseModel):
+    email: str
+    

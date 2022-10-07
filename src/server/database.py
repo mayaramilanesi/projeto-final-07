@@ -5,9 +5,9 @@ class DataBase:
     database_uri="DATABASE_URI"
     users_collection = None
     address_collection = None
-    product_collection = None
-    order_collection = None
-    order_items_collection = None
+    products_collection = None
+    cart_collection = None
+
 
 db = DataBase()
 
@@ -20,10 +20,10 @@ async def connect_db():
         tls=True,
         tlsAllowInvalidCertificates=True
     )
-    db.users_collection = db.client.test.users
-    db.address_collection = db.client.teste.address
-    db.product_collection = db.client.teste.products
-    db.order_collection = db.client.teste.orders
+    db.clients_collection = db.client.final_project.clients
+    db.address_collection = db.client.final_project.address
+    db.products_collection = db.client.final_project.products
+    db.cart_collection = db.client.final_project.cart
 
 async def disconnect_db():
     db.client.close()
