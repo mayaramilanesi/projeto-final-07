@@ -1,9 +1,19 @@
-from bson.objectid import ObjectId
 
-async def delete_product(product_collection, product_id):
+from src.server.database import db, connect_db, disconnect_db
+
+async def delete_product(product_code):
     try:
-        product = await product_collection.delete_one({"_id": ObjectId(product_id)})
+        await connect_db()
+        
+        product_collection = db.product_collection
+        
+        product = await product_collection.delete_one({"code": product_code})
         if product.deleted_count:
-            return {'status': 'Product deleted'}
+            return True
+        return False
+    
     except Exception as e:
-        print(f'delete_user.error: {e}')
+        return (f'delete_user.error: {e}')
+    
+    finally:
+        await disconnect_db()

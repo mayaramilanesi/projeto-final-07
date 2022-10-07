@@ -16,7 +16,7 @@ async def create_product(product):
         else:
             return False
     
-    except Exception as e:
-        print({f'create_product_error', {e}})  
-
-    await disconnect_db()
+    except Exception:
+        raise Exception("Internal error failure")  
+    finally:
+        await disconnect_db()
