@@ -5,9 +5,9 @@ async def delete_product(product_code):
     try:
         await connect_db()
         
-        product_collection = db.product_collection
+        products_collection = db.products_collection
         
-        product = await product_collection.delete_one({"code": product_code})
+        product = await products_collection.delete_one({"code": product_code})
         if product.deleted_count:
             return True
         return False

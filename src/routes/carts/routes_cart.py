@@ -1,8 +1,9 @@
+
 from typing import List
 
-import domain.schemas.order as order
+import src.domain.schemas.order as order
 from fastapi import APIRouter, status
-from domain.schemas.order import (OrderSchema)
+from src.domain.schemas.order import (OrderSchema)
 
 routes_order = APIRouter(
     prefix="/api/order"

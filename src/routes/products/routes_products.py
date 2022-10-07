@@ -10,13 +10,13 @@ from src.domain.products.service.service_get_all_products import service_get_all
 from src.domain.products.service.service_delete_product import service_delete_product
 
 
-rota_products = APIRouter(
+routes_products = APIRouter(
     # Prefixo para o caminho da rota
     prefix="/api/products", tags=["Products"]
 )
 
 
-@rota_products.post("/new", 
+@routes_products.post("/new", 
                     summary="Inserting a new product",
                     description="This route will be executed when the product is added to the list of products",
                     status_code=status.HTTP_201_CREATED)
@@ -29,7 +29,7 @@ async def create_new_product(product: ProductSchema):
         raise HTTPException(status_code=409, detail="A product with the same name or code already exists")
   
         
-@rota_products.get("/{code}",
+@routes_products.get("/{code}",
                     summary="Getting a product by its code",
                     description="This route will return a product by its code",
                     status_code=status.HTTP_200_OK)
@@ -42,13 +42,13 @@ async def get_product_by_code(code: str):
         return product_searched
 
     
-@rota_products.put("/{codigo}")
+@routes_products.put("/{codigo}")
 async def update_product(product: ProductUpdatedSchema):
    result = await service_update_product(product)
    return result   
 
     
-@rota_products.get("/", summary="Getting all products",
+@routes_products.get("/", summary="Getting all products",
                     description="This route will return a list of all products")
 async def find_all_products():
     result = await service_get_all_products()
@@ -58,7 +58,7 @@ async def find_all_products():
 
 
 
-@rota_products.get("/category/{category}")
+@routes_products.get("/category/{category}")
 async def get_products_by_category(category: str):
     result = await service_get_product_by_category(category)
     if result == False:
@@ -67,7 +67,7 @@ async def get_products_by_category(category: str):
 
 
 
-@rota_products.delete("/{codigo}")
+@routes_products.delete("/{codigo}")
 async def delete_product(product_code):
     result = await service_delete_product(product_code)
     if result == False:
