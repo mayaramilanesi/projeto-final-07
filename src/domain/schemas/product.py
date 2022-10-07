@@ -7,12 +7,12 @@ class ProductSchema(BaseModel):
         unique=True)
     
     description: str
-    price: condecimal(ge = 0.01,
+    price: condecimal(ge=0.01,
     decimal_places=2)
     image: str
     code: str=Field()
     category: str
-    inventory: conint(gt=1)
+    inventory: conint(ge=1)
     
 class ProductUpdatedSchema(BaseModel):
     name: Optional[str]
