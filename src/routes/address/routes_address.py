@@ -4,13 +4,13 @@ from fastapi import APIRouter
 from src.domain.address.service.service_get_all_address import service_find_all_address
 
 
-route_address = APIRouter(
+routes_address = APIRouter(
     prefix="/api/address",
     tags=["Address"]
 )
 
 
-@route_address.get(
+@routes_address.get(
     "/", 
     summary="Pesquisar todos os endereços", 
     description="Rota para a busca de todos os endereços cadastrados"
@@ -20,7 +20,7 @@ async def fetch_all_address():
     return result
 
 
-""" @route_address.post(
+""" @routes_address.post(
     "/", 
     response_model=dict, 
     summary="Criação de um novo endereço.", 

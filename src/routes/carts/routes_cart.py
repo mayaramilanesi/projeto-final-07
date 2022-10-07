@@ -1,10 +1,10 @@
-from typing import List
+""" from typing import List
 
-import domain.schemas.order as order
+import src.domain.schemas.order as order
 from fastapi import APIRouter, status
-from domain.schemas.order import (OrderSchema)
+from src.domain.schemas.order import (OrderSchema)
 
-routes_order = APIRouter(
+routes_cart = APIRouter(
     prefix="/api/order"
 )
 
@@ -27,4 +27,4 @@ async def create_new_order(order: OrderSchema):
 )
 async def remove_order(order_id):
     # Remove uma música pelo código
-    await order.models.create_orders.delete_order(order_id)
+    await order.models.create_orders.delete_order(order_id) """
