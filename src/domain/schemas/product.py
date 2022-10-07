@@ -12,7 +12,7 @@ class ProductSchema(BaseModel):
     image: str
     code: str=Field()
     category: str
-    inventory: conint(gt=1)
+    inventory: conint(ge=1)
     
 class ProductUpdatedSchema(BaseModel):
     name: Optional[str]

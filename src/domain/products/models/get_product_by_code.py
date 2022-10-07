@@ -8,6 +8,7 @@ async def get_product_by_code(product_code):
         products_collection = db.products_collection
         data = await products_collection.find_one({"code": product_code})
         if data:
+            data["price"] = str(data["price"])
             return data    
         else:
             return False

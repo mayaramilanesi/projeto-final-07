@@ -14,6 +14,7 @@ async def get_all_products(skip=0, limit=2):
             return False
         for product in products:
             product.pop("_id")
+            product["price"] = str(product["price"])
         return products
         
     except Exception as e:

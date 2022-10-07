@@ -1,13 +1,13 @@
 from fastapi import APIRouter
 
-rota_principal = APIRouter(
+principal_routes = APIRouter(
     # Prefixo para o caminho da rota
     prefix="",
     #rótulo (tag) para mostrar no documento do Swagger
     tags=["Principal",],
 )
 
-@rota_principal.get( #
+@principal_routes.get( #
     "/", 
     response_model=str, # tipo de dado que vai ser informado no response
     summary="Diga oi.", #descrição que vai ao lado do verbo
