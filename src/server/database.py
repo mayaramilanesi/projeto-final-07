@@ -2,11 +2,9 @@ from motor.motor_asyncio import AsyncIOMotorClient
 
 class DataBase:
     client: AsyncIOMotorClient = None
-<<<<<<< HEAD
-    database_uri="mongodb+srv://maysimoes:151220@luizacode.pj0rydf.mongodb.net/teste"
-=======
+
     database_uri="mongodb+srv://mayaramilanesi:senhatlas@luizacode.egyfnn1.mongodb.net/?retryWrites=true&w=majority"
->>>>>>> 226cfc32e5ffacbccf83a36634d240c150609fcc
+
     users_collection = None
     address_collection = None
     products_collection = None
