@@ -5,9 +5,9 @@ async def get_products_by_category(product_category, skip=0, limit=2):
     try:
         await connect_db()
         
-        product_collection = db.product_collection 
+        products_collection = db.product_collection 
 
-        products_cursor = product_collection.find({"category": product_category}).skip(int(skip)).limit(int(limit))
+        products_cursor = products_collection.find({"category": product_category}).skip(int(skip)).limit(int(limit))
         products = await products_cursor.to_list(length=int(limit))
         
         if len(products) == 0:

@@ -1,5 +1,5 @@
 from src.domain.users.models.create_user import create_user
-from src.domain.schemas.client import ClientSchema
+from domain.schemas.user import ClientSchema
 
 
 

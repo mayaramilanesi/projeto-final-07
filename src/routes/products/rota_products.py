@@ -60,7 +60,7 @@ async def find_all_products():
 
 
 
-@rota_products.get("/category/{category}")
+@rota_products.get("/category/{category}") 
 async def get_products_by_category(category: str):
     result = await service_get_product_by_category(category)
     if result == False:

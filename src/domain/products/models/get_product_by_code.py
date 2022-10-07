@@ -5,8 +5,8 @@ from types import NoneType
 async def get_product_by_code(product_code):
     try:
         await connect_db()
-        product_collection = db.product_collection
-        data = await product_collection.find_one({"code": product_code})
+        products_collection = db.products_collection
+        data = await products_collection.find_one({"code": product_code})
         if data:
             return data    
         else:

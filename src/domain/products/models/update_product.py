@@ -1,9 +1,9 @@
 from bson.objectid import ObjectId
 
-async def update_product(product_collection, product_id, product_data):
+async def update_product(products_collection, product_id, product_data):
     try:
         data = {k: v for k, v in product_data.items() if v is not None}
-        product = await product_collection.update_one(
+        product = await products_collection.update_one(
             {'_id': ObjectId(product_id)},
             {'$set': data})
         

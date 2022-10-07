@@ -1,7 +1,7 @@
 
 from fastapi import APIRouter
 
-from src.domain.schemas.client import ClientSchema
+from domain.schemas.user import ClientSchema
 from src.domain.users.service import service_create_user, service_get_user_by_email
 
 routes_users = APIRouter(

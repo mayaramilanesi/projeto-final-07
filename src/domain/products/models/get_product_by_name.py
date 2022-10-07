@@ -3,8 +3,8 @@ from src.server.database import db, connect_db, disconnect_db
 async def get_product_by_name(product_name):
     try:
         await connect_db()
-        product_collection = db.product_collection
-        data = await product_collection.find_one({'name': product_name})
+        products_collection = db.products_collection
+        data = await products_collection.find_one({'name': product_name})
         if data:
             return data
         else:
