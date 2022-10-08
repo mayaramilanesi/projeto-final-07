@@ -14,7 +14,7 @@ async def get_products_by_category(product_category, skip=0, limit=2):
             return False
         for product in products:
             product.pop("_id")
-            product['price'] = str([product['price']])
+            product["price"] = str(product["price"])
         return products
                      
     except Exception as e:

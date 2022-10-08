@@ -1,4 +1,6 @@
+
 """ from typing import List
+>>>>>>> 226cfc32e5ffacbccf83a36634d240c150609fcc
 
 import src.domain.schemas.order as order
 from fastapi import APIRouter, status

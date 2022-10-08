@@ -1,6 +1,7 @@
 # Criar uma rota para cada arquivo?
 
 from fastapi import APIRouter
+from pprint import pprint
 from src.domain.address.service.service_get_all_address import service_find_all_address
 from fastapi.encoders import jsonable_encoder
 
@@ -18,7 +19,9 @@ routes_address = APIRouter(
     )
 async def fetch_all_address():
     result = await service_find_all_address()
-    return result
+    if result == False:
+        raise Exception(status_code=404, description="Não há endereços cadastrados")
+    return result 
 
 
 """ @routes_address.post(
