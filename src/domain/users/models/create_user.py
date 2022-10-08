@@ -8,6 +8,7 @@ async def create_user(user):
     users_collection = db.users_collection 
     try:
         user = await users_collection.insert_one(user)
+        await disconnect_db()
 
         if user.inserted_id:
             return True
@@ -16,5 +17,3 @@ async def create_user(user):
     
     except Exception as e:
         return {f'create_user_error', {e}}  
-     
-    await disconnect_db()

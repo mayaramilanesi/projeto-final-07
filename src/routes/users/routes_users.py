@@ -17,7 +17,7 @@ async def create_user(user: UserSchema):
     if result == True:
         return {'mensagem': 'user successfully created'}
     else:
-        return {'mensagem': 'create user failed'}
+        return {'mensagem': 'user email already registered'}
 
         
 @routes_users.get("/{email}")
@@ -26,4 +26,6 @@ async def get_user_by_email(email: str):
     if user_searched == False:
         return {f'message': 'User not found'}
     else:
+        user_searched.pop('_id', None)
         return user_searched
+    
