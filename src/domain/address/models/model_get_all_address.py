@@ -1,5 +1,5 @@
 from src.server.database import connect_db, db, disconnect_db
-
+from src.domain.address.service.json_encoder_class import JSONEncoder
 
 async def get_all_address(skip=0, limit=2):
       
@@ -11,9 +11,8 @@ async def get_all_address(skip=0, limit=2):
         address = await address_cursor.to_list(length=int(limit))
         if len(address) == 0:
             return False
-        for a in address:
-            a.pop("_id")
-        return address
+        return JSONEncoder().encode(address)
+        
             
       except Exception as e:
             print(f'find_address.error: {e}')
