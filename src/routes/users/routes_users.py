@@ -1,9 +1,5 @@
 
 from fastapi import APIRouter
-<<<<<<< HEAD
-
-=======
->>>>>>> 40ea08affc4bea610ec73a47fc47dafd363e9681
 from src.domain.schemas.user import UserSchema
 from src.domain.users.service import service_create_user, service_get_user_by_email
 
