@@ -3,14 +3,15 @@ GET http://127.0.0.1:8000/
 
 ###
 # Criar usuário
-POST http://127.0.0.1:8000/api/users/user HTTP/1.1
+POST http://127.0.0.1:8000/api/users HTTP/1.1
 content-type: application/json
 
 {
     "name": "Luiza",
-    "email": "lumagalu@gmai.com",
-    "password": "123456"
-    
+    "email": "lumagalu@gmail.com",
+    "password": "123456",
+    "is_active": "True",   
+    "is_admin": "False"
 }
 
 ###

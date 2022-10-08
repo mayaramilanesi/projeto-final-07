@@ -3,15 +3,16 @@ from pydantic import ValidationError
 from src.domain.users.models import get_user
 
 
-async def create_user(users_collection, user):
+async def create_user(user):
     await connect_db()
-    users_collection = db.user_collection 
+    users_collection = db.users_collection 
     try:
         user = await users_collection.insert_one(user)
 
         if user.inserted_id:
-            user = await get_user(users_collection, user.inserted_id)
-            return user
+            return True
+        else:
+            return False
     
     except Exception as e:
         return {f'create_user_error', {e}}  
