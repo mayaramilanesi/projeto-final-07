@@ -1,5 +1,4 @@
 from src.server.database import connect_db, db, disconnect_db
-from src.domain.address.service.json_encoder_class import JSONEncoder
 
 async def get_all_address(skip=0, limit=2):
       
@@ -13,7 +12,7 @@ async def get_all_address(skip=0, limit=2):
         
         if len(address) == 0:
             return False
-        return JSONEncoder().encode(address)
+        return address
         
             
       except Exception as e:

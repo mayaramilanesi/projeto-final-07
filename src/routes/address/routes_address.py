@@ -1,9 +1,12 @@
 # Criar uma rota para cada arquivo?
-
+from typing import List
 from fastapi import APIRouter
 from pprint import pprint
 from src.domain.address.service.service_get_all_address import service_find_all_address
+from src.domain.address.service.service_create_address import service_create_address
+from src.domain.address.service.service_delete_address import service_delete_address
 from fastapi.encoders import jsonable_encoder
+from src.domain.schemas.address import AddressSchema
 
 
 routes_address = APIRouter(
@@ -13,7 +16,7 @@ routes_address = APIRouter(
 
 
 @routes_address.get(
-    "/", 
+    "/",
     summary="Pesquisar todos os endereços", 
     description="Rota para a busca de todos os endereços cadastrados",
     )
@@ -24,8 +27,8 @@ async def fetch_all_address():
     return result 
 
 
-""" @routes_address.post(
-    "/", 
+@routes_address.post(
+    "/{email}", 
     response_model=dict, 
     summary="Criação de um novo endereço.", 
     description="Rota para a criação de um novo endereço, verificando se há ou não a existência de um usuário antes"
@@ -37,4 +40,18 @@ async def create_address(address: AddressSchema, email):
     if result == True:
         return {'mensagem': 'address successfully created'}
     else:
-        return {'mensagem': 'create new address failed'}  """
+        return {'mensagem': 'create new address failed'} 
+    
+    
+    
+@routes_address.delete(
+    "/{code}", 
+    response_model=dict,
+    summary="Deletar endereço pelo código", 
+    description="Rota para deletar um endereço pelo seu código",
+    )
+async def delete_addres_by_code():
+    result = await service_delete_address()
+    if result == False:
+        raise Exception(status_code=404, description="Não há endereços cadastrados")
+    return result 

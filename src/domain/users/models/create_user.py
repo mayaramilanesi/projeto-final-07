@@ -5,7 +5,7 @@ from src.domain.users.models import get_user
 
 async def create_user(users_collection, user):
     await connect_db()
-    users_collection = db.user_collection 
+    users_collection = db.users_collection 
     try:
         user = await users_collection.insert_one(user)
 
