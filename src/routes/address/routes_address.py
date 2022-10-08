@@ -2,6 +2,7 @@
 
 from fastapi import APIRouter
 from src.domain.address.service.service_get_all_address import service_find_all_address
+from fastapi.encoders import jsonable_encoder
 
 
 routes_address = APIRouter(
@@ -13,7 +14,7 @@ routes_address = APIRouter(
 @routes_address.get(
     "/", 
     summary="Pesquisar todos os endereços", 
-    description="Rota para a busca de todos os endereços cadastrados"
+    description="Rota para a busca de todos os endereços cadastrados",
     )
 async def fetch_all_address():
     result = await service_find_all_address()
