@@ -19,12 +19,26 @@ content-type: application/json
 POST http://127.0.0.1:8000/api/users HTTP/1.1
 content-type: application/json
 
-{
+{    
+    "name": "",
+    "email": "",
     "password": "123456",
     "is_active": "True",   
     "is_admin": "False"
 }
 
+###
+# Teste usuário inválido - email sem @
+POST http://127.0.0.1:8000/api/users HTTP/1.1
+content-type: application/json
+
+{    
+    "name": "Laura",
+    "email": "lauragmai.com",
+    "password": "123456",
+    "is_active": "True",   
+    "is_admin": "False"
+}
 
 ###
 # Buscar usuário pelo email
