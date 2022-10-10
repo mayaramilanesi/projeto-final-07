@@ -10,7 +10,7 @@ class Address(BaseModel):
     number: int
     complement: str
     district: str
-    cep: str
+    zip_code: str
     city: str
     state: str
     is_delivery: bool = Field(default=True)

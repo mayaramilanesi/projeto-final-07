@@ -3,6 +3,7 @@ from fastapi import APIRouter
 from src.domain.address.service.service_get_all_address import service_find_all_address
 from src.domain.address.service.service_create_address import service_create_address
 from src.domain.address.service.service_delete_address import service_delete_address
+from src.domain.address.service.service_get_address_by_email import service_get_address_by_email
 from src.domain.schemas.address import AddressSchema
 from fastapi import HTTPException, status
 
@@ -22,6 +23,18 @@ async def fetch_all_address():
     result = await service_find_all_address()
     if result == False:
         raise Exception(status_code=404, description="There are no registered addresses")
+    return result 
+
+
+@routes_address.get("/find/{email}",
+    summary="Search addresses by email", 
+    description="Route to look up a user's address through their email.",
+    status_code=status.HTTP_200_OK)
+
+async def get_user_email_address(email):
+    result = await service_get_address_by_email(email)
+    if result == False:
+        raise Exception(status_code=404, description="There is no registered address for this user.")
     return result 
 
 
