@@ -3,6 +3,7 @@ from motor.motor_asyncio import AsyncIOMotorClient
 class DataBase:
     client: AsyncIOMotorClient = None
 
+    #database_uri = "DATABASE_URI"
     database_uri="mongodb+srv://mayaramilanesi:senhatlas@luizacode.egyfnn1.mongodb.net/?retryWrites=true&w=majority"
 
     users_collection = None

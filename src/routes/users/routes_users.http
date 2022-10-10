@@ -3,17 +3,44 @@ GET http://127.0.0.1:8000/
 
 ###
 # Criar usuário
-POST http://127.0.0.1:8000/api/users/user HTTP/1.1
+POST http://127.0.0.1:8000/api/users HTTP/1.1
 content-type: application/json
 
 {
     "name": "Luiza",
-    "email": "lumagalu@gmai.com",
-    "password": "123456"
-    
+    "email": "lumagalu@gmail.com",
+    "password": "123456",
+    "is_active": "True",   
+    "is_admin": "False"
+}
+
+###
+# Teste usuário inválido - sem nome e email
+POST http://127.0.0.1:8000/api/users HTTP/1.1
+content-type: application/json
+
+{    
+    "name": "",
+    "email": "",
+    "password": "123456",
+    "is_active": "True",   
+    "is_admin": "False"
+}
+
+###
+# Teste usuário inválido - email sem @
+POST http://127.0.0.1:8000/api/users HTTP/1.1
+content-type: application/json
+
+{    
+    "name": "Laura",
+    "email": "lauragmai.com",
+    "password": "123456",
+    "is_active": "True",   
+    "is_admin": "False"
 }
 
 ###
 # Buscar usuário pelo email
-GET http://127.0.0.1:8000/users/lumagalu@gmail.com HTTP/1.1
+GET http://127.0.0.1:8000/api/users/lumagalu@gmail.com HTTP/1.1
 content-type: application/json
