@@ -1,4 +1,4 @@
-import email
+from pydantic import EmailStr
 from src.server.database import db, connect_db, disconnect_db
 
 async def get_opened_cart_by_user_email(email):
