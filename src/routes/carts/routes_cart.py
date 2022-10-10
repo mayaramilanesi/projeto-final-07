@@ -18,9 +18,3 @@ async def create_new_cart(cart: CartSchema):
     new_cart = await service_create_cart(cart)
     return new_cart
 
-
-# @routes_order.delete(
-#     "/{order_id}",
-#     # Código HTTP infomando que foi removido
-#     status_code=status.HTTP_202_ACCEPTED
-# )

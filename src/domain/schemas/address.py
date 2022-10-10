@@ -18,7 +18,7 @@ class Address(BaseModel):
 
 class AddressSchema(BaseModel):
     user: EmailStr
-    address: List[Address] = []
+    address: List[Address]
     
 class EmailSchema(BaseModel):
     email: str

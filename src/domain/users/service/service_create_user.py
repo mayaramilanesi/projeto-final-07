@@ -4,7 +4,6 @@ from src.domain.schemas.user import UserSchema
 
 
 async def service_create_user(user: UserSchema):
-    #Validacoes de Usuário....
     data_user = await get_user_by_email(user.email)
     if data_user == False:
         result = await create_user(user.dict())

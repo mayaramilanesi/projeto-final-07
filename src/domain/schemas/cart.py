@@ -1,13 +1,15 @@
 from decimal import Decimal
-from typing import Optional
-from pydantic import BaseModel, Field
+from email.policy import default
+from typing import Optional, List
+from pydantic import BaseModel, EmailStr, Field
+
 
 from src.domain.schemas.user import UserSchema
 
 
 class CartSchema(BaseModel):
-    user: UserSchema
-    products: list[]
-    total_price: Decimal = Field(max_digits=10, decimal_places=2)
+    user: EmailStr
+    products: Field(default=[])
+    total_price: Decimal = Field(default=0.0)
     opened: bool = Field(default=True)
     
