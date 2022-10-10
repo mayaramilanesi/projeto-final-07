@@ -3,9 +3,9 @@ from src.domain.products.service.service_validate_product import service_validat
 
 
 async def service_get_product_by_code(product_code):   
-    product = await get_product_by_code(product_code)
-    if product == False:
-        return False
-    else: 
-        product.pop("_id")
-    return product
+    try:
+        product = await get_product_by_code(product_code)
+        if product == False:
+            return False
+        return product
+    except Exception as e:(f'get_all_products_error {e}')

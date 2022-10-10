@@ -1,5 +1,5 @@
 from src.domain.carts.models.create_new_cart import create_new_cart
-from domain.carts.models.get_opened_cart_by_email import get_opened_cart_by_user_email
+from src.domain.carts.models.get_opened_cart_by_email import get_opened_cart_by_user_email
 from src.domain.schemas.cart import CartSchema
 
 

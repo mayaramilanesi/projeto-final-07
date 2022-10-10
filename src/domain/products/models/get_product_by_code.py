@@ -1,5 +1,5 @@
 from src.server.database import db, connect_db, disconnect_db
-from types import NoneType
+
 
 
 async def get_product_by_code(product_code):

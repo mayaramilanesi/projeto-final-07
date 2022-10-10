@@ -1,8 +1,21 @@
-from src.domain.schemas.product import ProductSchema, ProductUpdatedSchema
+
 from src.domain.products.models.update_product import update_product
+from src.domain.products.service.service_get_product_by_code import service_get_product_by_code
 
 
-
-#Ainda não está ajustado de acordo com a arquitetura e regras que definimos 
-async def service_update_product(product: ProductUpdatedSchema):
-        ...
+async def service_update_product(product_data):
+        try:
+                product_dict = product_data.dict()
+                
+                product_searched = await service_get_product_by_code(product_dict['code'])
+                if product_searched == False:
+                        return False      
+                
+                updated_product = await update_product(product_searched['code'], product_dict)
+                
+                if updated_product == False:
+                        return False
+                return True
+        
+        except Exception as e:
+                return {f'update_product_error {e}'}
