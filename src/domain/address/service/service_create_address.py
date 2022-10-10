@@ -6,16 +6,15 @@ from src.domain.address.models.create_address import create_address
 from bson.objectid import ObjectId
 
 
-async def service_create_address(address: AddressSchema, email):
+async def service_create_address(address: AddressSchema):
       
       
       address_dict = address.dict()
-      
       for x in address_dict["address"]:
-            x["_id"] =  ()
-            
+            x["_id"] =  ObjectId()
       
-      address_user = await get_address_by_email(email)
+      address_user = await get_address_by_email(address.user)
+      print(address_user)
 
       if not address_user:
             result = await create_new_address(address_dict)

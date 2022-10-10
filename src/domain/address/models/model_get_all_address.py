@@ -1,6 +1,6 @@
 from src.server.database import connect_db, db, disconnect_db
 
-async def get_all_address(skip=0, limit=2):
+async def get_all_address(skip=0, limit=10):
       
       await connect_db()
       address_collection = db.address_collection

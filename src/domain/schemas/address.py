@@ -1,5 +1,5 @@
 from typing import List
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, EmailStr, Field
 from bson.objectid import ObjectId
 
 
@@ -17,7 +17,7 @@ class Address(BaseModel):
 
 
 class AddressSchema(BaseModel):
-    user: str
+    user: EmailStr
     address: List[Address] = []
     
 class EmailSchema(BaseModel):
