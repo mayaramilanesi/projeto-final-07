@@ -10,7 +10,6 @@ from src.domain.products.service.service_get_all_products import service_get_all
 from src.domain.products.service.service_delete_product import service_delete_product
 
 routes_products = APIRouter(
-    # Prefixo para o caminho da rota
     prefix="/api/products", tags=["Products"]
 )
 

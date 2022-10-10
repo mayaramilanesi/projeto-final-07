@@ -13,7 +13,7 @@ async def delete_address(address_id: ObjectId):
 		else:
 			return False
 
-	except Exception as e:
-		print(f'delete_address.error: {e}')
-  
-	await disconnect_db()
+	except Exception:
+		raise Exception("Internal error failure")  
+	finally:
+        	await disconnect_db()
