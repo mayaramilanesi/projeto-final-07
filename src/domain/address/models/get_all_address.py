@@ -14,8 +14,7 @@ async def get_all_address(skip=0, limit=10):
             return False
         return address
         
-            
-      except Exception as e:
-            print(f'find_address.error: {e}')
-            
-      await disconnect_db()
+      except Exception:
+            raise Exception("Internal error failure")  
+      finally:
+        	await disconnect_db()

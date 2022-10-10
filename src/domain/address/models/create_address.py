@@ -1,6 +1,3 @@
-from bson.objectid import ObjectId
-from src.domain.address.models.get_address_by_email import get_address_by_email
-
 from src.server.database import connect_db, db, disconnect_db
 
 
@@ -22,7 +19,7 @@ async def create_address(address):
 		else:
 			return False
 
-	except Exception as e:
-		print(f'create_new_address.error: {e}')
-  
-	await disconnect_db()
+	except Exception:
+		raise Exception("Internal error failure")  
+	finally:
+        	await disconnect_db()

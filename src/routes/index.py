@@ -10,8 +10,8 @@ principal_routes = APIRouter(
 @principal_routes.get( #
     "/", 
     response_model=str, # tipo de dado que vai ser informado no response
-    summary="Welcome to Luizare", #descrição que vai ao lado do verbo
-    description="Welcome to our store.", # Descrição da rota
+    summary="Test", #descrição que vai ao lado do verbo
+    description="Main route to test server response.", # Descrição da rota
     )
 async def dizer_ola():
       return "Hello Word"

@@ -10,7 +10,7 @@ from src.domain.schemas.user import UserSchema
 
 class CartSchema(BaseModel):
     user: EmailStr
-    products: List=[]
+    products: str
     total_price: Decimal = Field(default=0.0)
     opened: bool = Field(default=True)
     

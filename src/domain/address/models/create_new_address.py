@@ -12,10 +12,10 @@ async def create_new_address(address):
         else:
             return False
         
-    except Exception as e:
-        print(f'create_new_address.error: {e}')
-        
-    await disconnect_db()
+    except Exception:
+        raise Exception("Internal error failure")  
+    finally:
+        	await disconnect_db()
         
         
       
