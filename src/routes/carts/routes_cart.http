@@ -1,0 +1,20 @@
+# Rota raiz
+GET http://127.0.0.1:8000/
+
+###
+# Criar carrinho
+POST http://127.0.0.1:8000/api/carts HTTP/1.1
+content-type: application/json
+
+{
+    "user": {
+        "name": "Luiza",
+        "email": "lumagalu@gmail.com",
+        "password": "123456",
+        "is_active": "True",   
+        "is_admin": "False"
+    },
+    "products": [],
+    "total_price": 0.00,
+    "opened": "True"
+}

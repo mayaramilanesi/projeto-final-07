@@ -1,32 +1,26 @@
 
-""" from typing import List
->>>>>>> 226cfc32e5ffacbccf83a36634d240c150609fcc
+from typing import List
 
-import src.domain.schemas.order as order
-from fastapi import APIRouter, status
-from src.domain.schemas.order import (OrderSchema)
+
+from fastapi import APIRouter
+from src.domain.schemas.cart import (CartSchema)
+from src.domain.carts.service.service_create_cart import service_create_cart
 
 routes_cart = APIRouter(
-    prefix="/api/order"
+    prefix="/api/carts", tags=["Carts"]
 )
 
 
-@routes_order.post(
-    "/",
-    status_code=status.HTTP_201_CREATED,
-    response_model=OrderSchema,
-)
-async def create_new_order(order: OrderSchema):
-    # Cria nova música
-    new_order = await order.models.create_orders.create_open_order(order)
-    return new_order
+@routes_cart.post("/")
+async def create_new_cart(cart: CartSchema):
+    # Cria novo carrinho
+    # NÃO TESTADO = ERRO 404 NOT FOUND
+    new_cart = await service_create_cart(cart)
+    return new_cart
 
 
-@routes_order.delete(
-    "/{order_id}",
-    # Código HTTP infomando que foi removido
-    status_code=status.HTTP_202_ACCEPTED
-)
-async def remove_order(order_id):
-    # Remove uma música pelo código
-    await order.models.create_orders.delete_order(order_id) """
+# @routes_order.delete(
+#     "/{order_id}",
+#     # Código HTTP infomando que foi removido
+#     status_code=status.HTTP_202_ACCEPTED
+# )
