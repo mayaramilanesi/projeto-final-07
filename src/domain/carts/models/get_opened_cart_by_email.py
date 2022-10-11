@@ -10,7 +10,7 @@ async def get_opened_cart_by_user_email(user_email):
     
         if cart_searched:
             return cart_searched
-        return False
+        return None
     
     except Exception as e:
             return (f'get_cart.error: {e}')
