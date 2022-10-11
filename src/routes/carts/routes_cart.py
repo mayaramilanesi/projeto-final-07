@@ -19,8 +19,7 @@ async def create_new_cart(cart: CartSchema, user_email: EmailStr):
     new_cart = await service_create_cart(cart, user_email)
     if new_cart == False:
         raise HTTPException(status_code=404, detail="Cart not created")
-    cart_json = format_json(new_cart)
-    return cart_json
+    return new_cart
 
 # @routes_cart.put("/{code}")
 # async def insert_product_in_cart(user_email, product_code, quantity: int):

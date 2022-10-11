@@ -1,4 +1,4 @@
-
+from src.util.service import format_json
 from bson.decimal128 import Decimal128
 from src.server.database import db, connect_db, disconnect_db
 
@@ -11,7 +11,7 @@ async def create_new_cart(cart):
         result = await carts_collection.insert_one(cart)
             
         if result.inserted_id:
-            return result
+            return {'message': 'cart successfully created'}
         return False
         
     except Exception as e:
