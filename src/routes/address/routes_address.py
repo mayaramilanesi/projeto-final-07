@@ -44,23 +44,19 @@ async def get_user_email_address(email):
     status_code=status.HTTP_201_CREATED)
 
 async def create_address(address: AddressSchema):
-    
     result = await service_create_address(address)
-    
     if result == True:
         return {'mensagem': 'address successfully created'}
     else:
         raise HTTPException(status_code=400, detail="The values entered do not match the required structure.")
     
     
-@routes_address.delete(
-    "/{address_id}", 
+@routes_address.delete("/{address_id}", 
     summary="Delete address by your code", 
     description="Route to delete an address by its code.",
     status_code=status.HTTP_200_OK)
 
 async def delete_addres_by_code(address_id):
-    print(address_id)
     result = await service_delete_address(address_id)
     if result == True:
         return {'mensagem': 'address successfully deleted'}
