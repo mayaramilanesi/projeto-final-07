@@ -43,7 +43,7 @@ async def get_user_email_address(email):
     description="Route for creating a new address, checking whether or not there are addresses registered with this user.",
     status_code=status.HTTP_201_CREATED)
 
-async def create_address(address: AddressSchema):
+async def create_address(address):
     result = await service_create_address(address)
     if result == True:
         return {'mensagem': 'address successfully created'}

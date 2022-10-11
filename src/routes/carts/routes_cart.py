@@ -1,6 +1,7 @@
 
 from http.client import HTTPException
 from typing import List
+from fastapi import HTTPException, status
 
 
 from fastapi import APIRouter
@@ -10,6 +11,7 @@ from src.domain.carts.service.service_delete_open_carts_by_user_email import ser
 from src.domain.schemas.cart import CartSchema
 from src.domain.carts.service.service_create_cart import service_create_cart
 from src.domain.carts.service.service_validate_product_quantity import service_validate_product_quantity
+from src.domain.carts.service.service_closed_cart import service_closed_cart
 
 routes_cart = APIRouter(
     prefix="/api/carts", tags=["Carts"]
@@ -45,4 +47,17 @@ async def get_cart_by_user_email(user_email: EmailStr):
     if cart == False:
         raise HTTPException(status_code=404, detail="No carts found for this user")
     return cart
+
+
+@routes_cart.put("/{email}", 
+    summary="Closing the cart", 
+    description="Route to close a cart that is open",
+    status_code=status.HTTP_200_OK)
+
+async def closing_cart(email):
+    result = await service_closed_cart(email)
+    if result == True:
+        return {'mensagem': 'cart closed successfully'}
+    else:
+        raise HTTPException(status_code=404, detail="Cart not found.")
     
