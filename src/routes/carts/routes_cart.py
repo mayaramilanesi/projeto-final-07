@@ -5,6 +5,7 @@ from typing import List
 
 from fastapi import APIRouter
 from pydantic import EmailStr
+from src.util.service import format_json
 from src.domain.schemas.cart import CartSchema
 from src.domain.carts.service.service_create_cart import service_create_cart
 
@@ -16,8 +17,9 @@ routes_cart = APIRouter(
 async def create_new_cart(cart: CartSchema, user_email: EmailStr):
     new_cart = await service_create_cart(cart, user_email)
     if new_cart == False:
-        print("Impossivel criar carrinho")
-    return {"message": "Cart created successfully"}
+        raise HTTPException(status_code=404, detail="Cart not created")
+    cart_json = format_json(new_cart)
+    return (cart_json)
 
 # @routes_cart.put("/{code}")
 # async def insert_product_in_cart(product_code, cart):

@@ -1,5 +1,4 @@
 from src.server.database import db, connect_db, disconnect_db
-from pydantic import ValidationError
 
 
 #Função que busca usuário pelo email - acrescentar no service de criação de carrinho

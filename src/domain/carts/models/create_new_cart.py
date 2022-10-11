@@ -1,6 +1,5 @@
-from itertools import product
+
 from bson.decimal128 import Decimal128
-from bson.objectid import ObjectId
 from src.server.database import db, connect_db, disconnect_db
 
 async def create_new_cart(cart):
@@ -16,16 +15,7 @@ async def create_new_cart(cart):
         return False
         
     except Exception as e:
-        print(f'create_cart.error: {e}')
-        return False
+        return (f'create_cart.error: {e}')
 
     finally:
         await disconnect_db()
-# async def get_order(carts_collection, order_id):
-#     try:
-#         order = await carts_collection.find_one({'_id': order_id})
-#         if order:
-#             return order
-#     except Exception as e:
-#         print(f'get_order.error: {e}')
-#         return None
