@@ -9,7 +9,7 @@ async def insert_product_to_cart(cart, product, quantity):
         await connect_db()
         carts_collection = db.carts_collection
         
-        data = {k: v for k, v in product_data.items() if v is not None}
+        
         
     except Exception as e:
         return Exception(''

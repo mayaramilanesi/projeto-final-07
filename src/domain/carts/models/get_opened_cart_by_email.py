@@ -1,4 +1,4 @@
-
+from src.util.service import format_json
 from src.server.database import db, connect_db, disconnect_db
 
 async def get_opened_cart_by_user_email(user_email):
@@ -9,7 +9,7 @@ async def get_opened_cart_by_user_email(user_email):
         cart_searched = await carts_collection.find_one({'user_email': user_email, 'opened': True})
     
         if cart_searched:
-            return cart_searched
+            return format_json(cart_searched)
         return None
     
     except Exception as e:
