@@ -3,6 +3,7 @@ from src.server.database import db, connect_db, disconnect_db
 async def delete_cart(carts_collection, order_id):
     await connect_db()
     carts_collection = db.carts_collection
+    
     try:
         order = await carts_collection.delete_one(
             {'_id': order_id}

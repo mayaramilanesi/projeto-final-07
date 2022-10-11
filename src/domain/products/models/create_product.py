@@ -1,6 +1,5 @@
 #from fastapi import HTTPException, status
 from src.server.database import db, connect_db, disconnect_db
-from pydantic import ValidationError
 from bson.decimal128 import Decimal128
 
 async def create_product(product):
