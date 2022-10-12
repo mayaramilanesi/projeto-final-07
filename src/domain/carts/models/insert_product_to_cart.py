@@ -9,10 +9,7 @@ async def insert_product_to_cart(cart, product):
         
         product = product.dict()
         filter = { 'user_email' : cart['user_email'], 'opened': True}
-        new_value = { '$push': {"products": product} 
-     #               , '$set': {"total_price": product["price"]}
-    #                , '$set': {"total_quantity": product["quantity"]
-                    }
+        new_value = { '$push': {"products": product}}
         new_product = await carts_collection.update_one(filter, new_value)
 
         if new_product:
