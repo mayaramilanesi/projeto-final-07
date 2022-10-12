@@ -1,15 +1,17 @@
 
 from http.client import HTTPException
 from typing import List
+from src.util.service import format_json
 
 
 from fastapi import APIRouter
 from pydantic import EmailStr
+from src.domain.schemas.product import ProductCartSchema
 from src.domain.carts.service.service_get_opened_cart_by_user_email import service_get_open_carts_by_user_email
 from src.domain.carts.service.service_delete_open_carts_by_user_email import service_delete_open_carts_by_user_email
 from src.domain.schemas.cart import CartSchema
 from src.domain.carts.service.service_create_cart import service_create_cart
-from src.domain.carts.service.service_validate_product_quantity import service_validate_product_quantity
+from src.domain.carts.service.service_insert_product_to_cart import service_insert_product_to_cart
 
 routes_cart = APIRouter(
     prefix="/api/carts", tags=["Carts"]
@@ -17,14 +19,17 @@ routes_cart = APIRouter(
 
 @routes_cart.post("/")
 async def create_new_cart(cart: CartSchema, user_email: EmailStr):
-    new_cart = await service_create_cart(cart, user_email)
+    new_cart = format_json(await service_create_cart(cart, user_email))
     if new_cart == False:
         raise HTTPException(status_code=404, detail="Cart not created")
     return new_cart
 
-# @routes_cart.put("/{code}")
-# async def insert_product_in_cart(user_email, product_code, quantity: int):
-# user = await service_create_cart(user_email, product_code
+@routes_cart.put("/insert/{code}")
+async def insert_product_in_cart(user_email: EmailStr, product_code: str, product_quantity: int):
+    cart = await service_insert_product_to_cart(user_email, product_code, product_quantity)
+    if cart == False:
+        raise Exception
+    return {f'product successfully inserted'}
 
 
 # @routes_cart.delete("/")
