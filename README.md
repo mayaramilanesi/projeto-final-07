@@ -1,4 +1,4 @@
-<img src="https://github.com/majhara/projeto-final-luiza-code-grupo7/blob/main/joiasebijuterias.png"> 
+<img src="https://github.com/majhara/luizare-banco-imagens/blob/main/capa%20readme.png"> 
 
 <h2 align="center">Projeto final - Grupo 7 :ring: </h2> 
 
