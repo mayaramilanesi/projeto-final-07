@@ -1,6 +1,6 @@
 <img src="https://github.com/majhara/luizare-banco-imagens/blob/main/capa%20readme.png"> 
 
-<h2 align="center">Projeto final - Grupo 7 :ring: </h2> 
+<h1 align="center"> L u i z a r e </h1> 
 
 <h3 align="center"> Descrição: Repositório criado para o projeto final do bootcamp Luiza Code 5a edição, promovido pela Luiza Labs (Magalu)</h3>
 
