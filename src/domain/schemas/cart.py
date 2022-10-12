@@ -1,8 +1,6 @@
 from decimal import Decimal
-from typing import Optional, List
+from typing import List
 from pydantic import BaseModel, EmailStr, Field
-from src.domain.schemas.product import ProductSchema
-from src.domain.schemas.user import UserSchema
 
 class CartSchema(BaseModel):
     user_email = str
@@ -10,4 +8,5 @@ class CartSchema(BaseModel):
     total_price: Decimal = Field(default=0.0)
     total_quantity: int
     opened: bool = Field(default=True)
+    
     

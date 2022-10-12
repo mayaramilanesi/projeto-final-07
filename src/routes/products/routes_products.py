@@ -26,8 +26,9 @@ async def create_new_product(product: ProductSchema = Body(
             "price": "A value greater than 0.01",
             "image": "a URL to the product image",
             "code": "Product bar code",
-            "category": "Product category: Choose among the following categories: jewelry, semi-jewel or costume jewelry"
-                }
+            "category": "Product category: Choose among the following categories: jewelry, semi-jewel or costume jewelry",
+            "inventory": "A integer number - product in stock",
+            }
         )
     
     ):

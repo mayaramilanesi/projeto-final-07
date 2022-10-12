@@ -1,21 +1,21 @@
 from src.server.database import db, connect_db, disconnect_db
  
 
-async def insert_product_to_cart(cart, product):
+async def update_quantity_cart(cart):
     try: 
         await connect_db()
         
         carts_collection = db.carts_collection
         
-        product = product.dict()
         filter = { 'user_email' : cart['user_email'], 'opened': True}
-        new_value = { '$push': {"products": product} 
-     #               , '$set': {"total_price": product["price"]}
-    #                , '$set': {"total_quantity": product["quantity"]
+        new_value ={
+                    '$set': {   "total_price": cart["total_price"],
+                                "total_quantity": cart["total_quantity"]
+                            }
                     }
-        new_product = await carts_collection.update_one(filter, new_value)
+        cart = await carts_collection.update_one(filter, new_value)
 
-        if new_product:
+        if cart:
             return True
         else:
             return False

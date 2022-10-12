@@ -1,3 +1,5 @@
+from decimal import Decimal
+from bson import Decimal128
 from pydantic import BaseModel, Field, conint, condecimal
 from typing import Optional
 
@@ -23,4 +25,9 @@ class ProductUpdatedSchema(BaseModel):
     inventory: Optional[int]
     code: str
 
+class ProductCartSchema(BaseModel):
+    name: str
+    price: float
+    quantity: conint(ge=1)
+    code: str=Field()
     
