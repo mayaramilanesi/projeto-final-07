@@ -1,5 +1,3 @@
-
-from bson import Decimal128
 from src.domain.carts.service.service_get_opened_cart_by_user_email import service_get_open_carts_by_user_email
 from src.domain.schemas.product import ProductCartSchema
 from src.domain.carts.service.service_validate_product_quantity import service_validate_product_quantity
@@ -7,8 +5,6 @@ from src.domain.products.service.service_get_product_by_code import service_get_
 from src.domain.carts.service.service_calc_total_price import service_calc_total_price
 
 from src.domain.carts.models.insert_product_to_cart import insert_product_to_cart
-from src.domain.carts.models.get_opened_cart_by_email import get_opened_cart_by_user_email
-from src.util.service import format_json
 
 async def service_insert_product_to_cart(user_email, product_code, product_quantity):
     
