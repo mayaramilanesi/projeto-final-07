@@ -12,6 +12,7 @@ from src.domain.schemas.cart import CartSchema
 from src.domain.carts.service.service_create_cart import service_create_cart
 from src.domain.carts.service.service_validate_product_quantity import service_validate_product_quantity
 from src.domain.carts.service.service_closed_cart import service_closed_cart
+from src.domain.carts.service.service_get_closed_cart_user_email import service_get_closed_carts_by_user_email, service_get_closed_carts_quantity_by_user_email
 
 routes_cart = APIRouter(
     prefix="/api/carts", tags=["Carts"]
@@ -61,3 +62,16 @@ async def closing_cart(email):
     else:
         raise HTTPException(status_code=404, detail="Cart not found.")
     
+@routes_cart.get("/closed/{email}")
+async def closed_cart_by_user_email(user_email: EmailStr):
+    carts = await service_get_closed_carts_by_user_email(user_email)
+    if carts == False:
+        raise HTTPException(status_code=404, detail="No closed carts found for this user")
+    return carts
+
+@routes_cart.get("/closed/quantity/{email}")
+async def closed_cart_quantity_by_user_email(user_email: EmailStr):
+    carts = await service_get_closed_carts_quantity_by_user_email(user_email)
+    if carts == False:
+        raise HTTPException(status_code=404, detail="No closed carts found for this user")
+    return carts

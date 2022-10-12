@@ -5,7 +5,9 @@ async def closed_cart(email):
         await connect_db()
         carts_collection = db.carts_collection
         
-        filter = {"user_email": email}
+        filter = {"user_email": email,
+                  "opened": True
+        }
         updated_record = {"$set": {"opened": False}}
         
         cart = await carts_collection.update_one(filter, updated_record)
