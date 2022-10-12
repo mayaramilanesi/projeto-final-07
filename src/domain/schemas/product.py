@@ -23,7 +23,6 @@ class ProductUpdatedSchema(BaseModel):
     image: Optional[str]
     category: Optional[str]
     inventory: Optional[int]
-    code: str
 
 class ProductCartSchema(BaseModel):
     name: str

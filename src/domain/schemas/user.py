@@ -1,4 +1,5 @@
 from pydantic import BaseModel, Field
+from datetime import date
 from pydantic.networks import EmailStr
 
 
@@ -6,9 +7,9 @@ class UserSchema(BaseModel):
       name: str
       email: EmailStr = Field(unique=True)
       password: str
-      cellphone : int
-      birth_date: int
-      cpf: int
+      cellphone : str
+      birth_date: str
+      cpf: str
       is_active: bool = Field(default=True)    
       is_admin: bool = Field(default=False)
       
