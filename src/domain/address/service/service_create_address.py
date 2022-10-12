@@ -14,7 +14,6 @@ async def service_create_address(address: AddressSchema):
             x["_id"] =  ObjectId()
       
       address_user = await get_address_by_email(address.user)
-      print(address_user)
 
       if not address_user:
             result = await create_new_address(address_dict)

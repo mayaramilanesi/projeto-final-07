@@ -1,13 +1,14 @@
 from src.server.database import db, connect_db, disconnect_db
 
-async def delete_user(email):
+async def delete_address_list(email):
     try:
         await connect_db()
         
-        users_collection = db.users_collection
+        address_collection = db.address_collection
         
-        user = await users_collection.delete_one({"email": email})
-        if user.deleted_count:
+        address_deleted = await address_collection.delete_one({"user": email})
+        
+        if address_deleted.deleted_count:
             return True
         return False
     

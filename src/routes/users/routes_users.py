@@ -3,7 +3,7 @@ from fastapi import APIRouter
 from src.domain.schemas.user import UserSchema
 from src.domain.users.service.service_create_user import service_create_user
 from src.domain.users.service.service_get_user_by_email import service_get_user_by_email
-from src.domain.users.service.delete_user import service_delete_user
+from src.domain.users.service.service_delete_user import service_delete_user
 from fastapi import HTTPException, status
 
 routes_users = APIRouter(
