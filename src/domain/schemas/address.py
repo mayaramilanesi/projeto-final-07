@@ -7,7 +7,7 @@ from bson.objectid import ObjectId
 class Address(BaseModel):
     _id: ObjectId()
     street: str
-    number: int
+    number: str
     complement: str
     district: str
     zip_code: str

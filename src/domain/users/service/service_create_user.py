@@ -4,7 +4,9 @@ from src.domain.schemas.user import UserSchema
 
 
 async def service_create_user(user: UserSchema):
+    
     data_user = await get_user_by_email(user.email)
+    
     if data_user == False:
         result = await create_user(user.dict())
         return result

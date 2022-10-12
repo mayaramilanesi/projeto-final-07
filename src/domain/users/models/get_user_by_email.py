@@ -13,7 +13,8 @@ async def get_user_by_email(user_email):
             return False
         else:
             return user
-    except Exception as e:
-        print(f'get_user.error: {e}')
-    
-    await disconnect_db()
+        
+    except Exception:
+        raise Exception("Internal error failure")  
+    finally:
+        	await disconnect_db()

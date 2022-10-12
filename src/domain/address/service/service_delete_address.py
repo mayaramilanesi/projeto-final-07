@@ -1,4 +1,3 @@
-from src.domain.schemas.address import EmailSchema
 from src.domain.address.models.delete_address import delete_address
 
 async def service_delete_address(address_id):

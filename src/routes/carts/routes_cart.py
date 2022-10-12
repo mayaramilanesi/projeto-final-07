@@ -2,6 +2,7 @@
 from http.client import HTTPException
 from typing import List
 from src.util.service import format_json
+from fastapi import HTTPException, status
 
 
 from fastapi import APIRouter
@@ -12,6 +13,9 @@ from src.domain.carts.service.service_delete_open_carts_by_user_email import ser
 from src.domain.schemas.cart import CartSchema
 from src.domain.carts.service.service_create_cart import service_create_cart
 from src.domain.carts.service.service_insert_product_to_cart import service_insert_product_to_cart
+from src.domain.carts.service.service_validate_product_quantity import service_validate_product_quantity
+from src.domain.carts.service.service_closed_cart import service_closed_cart
+from src.domain.carts.service.service_get_closed_cart_user_email import service_get_closed_carts_by_user_email, service_get_closed_carts_quantity_by_user_email
 
 routes_cart = APIRouter(
     prefix="/api/carts", tags=["Carts"]
@@ -50,4 +54,30 @@ async def get_cart_by_user_email(user_email: EmailStr):
     if cart == False:
         raise HTTPException(status_code=404, detail="No carts found for this user")
     return cart
+
+
+@routes_cart.put("/{email}", 
+    summary="Closing the cart", 
+    description="Route to close a cart that is open",
+    status_code=status.HTTP_200_OK)
+
+async def closing_cart(email):
+    result = await service_closed_cart(email)
+    if result == True:
+        return {'mensagem': 'cart closed successfully'}
+    else:
+        raise HTTPException(status_code=404, detail="Cart not found.")
     
+@routes_cart.get("/closed/{email}")
+async def closed_cart_by_user_email(user_email: EmailStr):
+    carts = await service_get_closed_carts_by_user_email(user_email)
+    if carts == False:
+        raise HTTPException(status_code=404, detail="No closed carts found for this user")
+    return carts
+
+@routes_cart.get("/closed/quantity/{email}")
+async def closed_cart_quantity_by_user_email(user_email: EmailStr):
+    carts = await service_get_closed_carts_quantity_by_user_email(user_email)
+    if carts == False:
+        raise HTTPException(status_code=404, detail="No closed carts found for this user")
+    return carts
