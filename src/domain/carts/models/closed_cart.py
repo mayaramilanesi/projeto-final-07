@@ -13,8 +13,7 @@ async def closed_cart(email):
         cart = await carts_collection.update_one(filter, updated_record)
         
     
-        if cart.modified_count:
-            print(cart)
+        if cart.modified_count >= 1:
             return True
         else:
             return False

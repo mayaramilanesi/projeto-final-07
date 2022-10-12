@@ -63,8 +63,8 @@ async def get_cart_by_user_email(user_email: EmailStr):
 
 async def closing_cart(email):
     result = await service_closed_cart(email)
-    if result == True:
-        return {'mensagem': 'cart closed successfully'}
+    if result:
+        return result
     else:
         raise HTTPException(status_code=404, detail="Cart not found.")
     
