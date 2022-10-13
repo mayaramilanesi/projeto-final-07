@@ -1,7 +1,5 @@
 from src.server.database import db, connect_db, disconnect_db
 
-
-#Função que busca usuário pelo email - acrescentar no service de criação de carrinho
 async def get_user_by_email(user_email):
     await connect_db()
     users_collection = db.users_collection 

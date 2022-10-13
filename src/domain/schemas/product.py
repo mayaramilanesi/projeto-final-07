@@ -1,6 +1,4 @@
-from decimal import Decimal
-from bson import Decimal128
-from pydantic import BaseModel, Field, conint, condecimal
+from pydantic import BaseModel, Field, conint
 from typing import Optional
 
 

@@ -1,5 +1,5 @@
-from src.util.service import format_json
 from src.server.database import db, connect_db, disconnect_db
+from src.util.service import format_json
 
 async def get_closed_cart_by_user_email(user_email, skip=0, limit=10):
     try:
@@ -12,10 +12,8 @@ async def get_closed_cart_by_user_email(user_email, skip=0, limit=10):
         
         if len(closed_carts) == 0:
             return False
-        for closed_cart in closed_carts:
-            closed_cart.pop("_id")
-            closed_cart["total_price"] = str(closed_cart["total_price"])
-        return closed_carts
+
+        return format_json(closed_carts)
                      
     except Exception as e:
         return (f'get_closed_carts_by_user_email: {e}')       

@@ -80,7 +80,7 @@ async def find_all_products():
 async def get_products_by_category(category: str):
     result = await service_get_product_by_category(category)
     if result == False:
-        raise HTTPException(status_code=404, description="Category not found")
+        raise HTTPException(status_code=404, detail="Category not found")
     return result
 
 

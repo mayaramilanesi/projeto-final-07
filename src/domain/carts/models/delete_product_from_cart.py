@@ -1,6 +1,5 @@
 from src.server.database import db, connect_db, disconnect_db
  
-
 async def delete_product_from_cart(cart, product_code):
     try: 
         await connect_db()

@@ -1,4 +1,3 @@
-from itertools import product
 from src.domain.carts.models.get_opened_cart_by_email import get_opened_cart_by_user_email
 from src.domain.carts.models.update_quantity_cart import update_quantity_cart
 

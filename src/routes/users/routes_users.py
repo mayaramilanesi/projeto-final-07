@@ -7,7 +7,6 @@ from src.domain.users.service.service_delete_user import service_delete_user
 from fastapi import HTTPException, status
 
 routes_users = APIRouter(
-    # Prefixo para o caminho da rota
     prefix="/api/users", tags=["Users"]
 )
 

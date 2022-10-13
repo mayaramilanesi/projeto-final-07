@@ -1,4 +1,3 @@
-from src.util.service import format_json
 from bson.decimal128 import Decimal128
 from src.server.database import db, connect_db, disconnect_db
 

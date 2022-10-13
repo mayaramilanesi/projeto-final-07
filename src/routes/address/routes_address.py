@@ -1,4 +1,3 @@
-# Criar uma rota para cada arquivo?
 from fastapi import APIRouter
 from src.domain.address.service.service_get_all_address import service_find_all_address
 from src.domain.address.service.service_create_address import service_create_address
@@ -53,7 +52,7 @@ async def create_address(address: AddressSchema):
     
 @routes_address.delete("/{address_id}", 
     summary="Delete address by its code", 
-    description="Route to delete an address by its code.",
+    description="Route to delete an address by its code. Only the ObjectId number must be passed",
     status_code=status.HTTP_200_OK)
 
 async def delete_addres_by_code(address_id):

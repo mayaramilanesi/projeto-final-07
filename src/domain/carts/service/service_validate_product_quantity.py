@@ -1,5 +1,3 @@
-from itertools import product
-from src.domain.products.models.get_product_by_code import get_product_by_code
 from src.domain.products.service.service_get_product_by_code import service_get_product_by_code
 
 

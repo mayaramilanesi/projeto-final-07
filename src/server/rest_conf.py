@@ -1,5 +1,3 @@
-# Quando avançarmos, verificar arquivo rest_conf do Ozair
-
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -8,7 +6,6 @@ from src.routes.products.routes_products import routes_products
 from src.routes.address.routes_address import routes_address
 from src.routes.users.routes_users import routes_users
 from src.routes.carts.routes_cart import routes_cart
-from src.routes.carts.routes_mayara_cart import routes_carts_mayara
 
 
 def configurar_rotas(app: FastAPI):
@@ -17,7 +14,6 @@ def configurar_rotas(app: FastAPI):
       app.include_router(routes_address)
       app.include_router(routes_users)
       app.include_router(routes_cart)
-      app.include_router(routes_carts_mayara)
       
       
       

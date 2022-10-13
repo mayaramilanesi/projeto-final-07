@@ -1,6 +1,6 @@
 from decimal import Decimal
 from typing import List
-from pydantic import BaseModel, EmailStr, Field
+from pydantic import BaseModel, Field
 
 class CartSchema(BaseModel):
     user_email = str

@@ -1,4 +1,3 @@
-from bson.objectid import ObjectId
 from src.server.database import db, connect_db, disconnect_db
 
 async def update_product(product_code, product_data):

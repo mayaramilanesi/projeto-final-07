@@ -1,5 +1,5 @@
 from src.server.database import connect_db, db, disconnect_db
-
+from src.util.service import format_json
 
 async def get_products_by_category(product_category, skip=0, limit=2):
     try:
@@ -12,10 +12,8 @@ async def get_products_by_category(product_category, skip=0, limit=2):
         
         if len(products) == 0:
             return False
-        for product in products:
-            product.pop("_id")
-            product["price"] = str(product["price"])
-        return products
+        products_json = format_json(products)
+        return products_json
                      
     except Exception as e:
         return (f'get_products_by_category.error: {e}')       
