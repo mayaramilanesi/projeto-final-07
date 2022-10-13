@@ -28,7 +28,7 @@ async def fetch_all_address():
 
 @routes_address.get("/find/{email}",
     summary="Search addresses by email", 
-    description="Route to look up a user's address through their email.",
+    description="Route to look up user address by email address.",
     status_code=status.HTTP_200_OK)
 
 async def get_user_email_address(email):
@@ -40,7 +40,7 @@ async def get_user_email_address(email):
 
 @routes_address.post("/{email}", 
     summary="Creating a new address", 
-    description="Route for creating a new address, checking whether or not there are addresses registered with this user.",
+    description="Route for creating a new address, checking whether or not there are addresses registered for this user.",
     status_code=status.HTTP_201_CREATED)
 
 async def create_address(address: AddressSchema):
@@ -52,7 +52,7 @@ async def create_address(address: AddressSchema):
     
     
 @routes_address.delete("/{address_id}", 
-    summary="Delete address by your code", 
+    summary="Delete address by its code", 
     description="Route to delete an address by its code.",
     status_code=status.HTTP_200_OK)
 

@@ -9,8 +9,7 @@ class ProductSchema(BaseModel):
         unique=True)
     
     description: str
-    price: condecimal(ge=0.01,
-    decimal_places=2)
+    price: float
     image: str
     code: str=Field()
     category: str
@@ -23,7 +22,6 @@ class ProductUpdatedSchema(BaseModel):
     image: Optional[str]
     category: Optional[str]
     inventory: Optional[int]
-    code: str
 
 class ProductCartSchema(BaseModel):
     name: str

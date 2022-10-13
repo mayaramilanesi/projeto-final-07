@@ -1,15 +1,14 @@
 from src.server.database import db, connect_db, disconnect_db
  
 
-async def insert_product_to_cart(cart, product):
+async def delete_product_from_cart(cart, product_code):
     try: 
         await connect_db()
         
         carts_collection = db.carts_collection
         
-        product = product.dict()
         filter = { 'user_email' : cart['user_email'], 'opened': True}
-        new_value = { '$push': {"products": product}}
+        new_value = { '$pull': {"products": product_code}}
         new_product = await carts_collection.update_one(filter, new_value)
 
         if new_product:
@@ -18,6 +17,6 @@ async def insert_product_to_cart(cart, product):
             return False
         
     except Exception as e:
-        print(f'insert_product_to_cart.error: {e}')
+        print(f'delete_product_frpm_cart.error: {e}')
     finally:
         await disconnect_db()
