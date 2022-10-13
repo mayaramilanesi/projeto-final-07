@@ -172,7 +172,7 @@ Solicitamos o seguinte:<br>
 <table><strong>Desenvolvido por: </strong><br>
 <tr><td>Mayara Milanesi</td><td><a href="https://www.linkedin.com/in/mayara-milanesi-b114b2161/">LinkedIn</a></td><td><a href="https://github.com/mayaramilanesi">GitHub</a></td></tr>
 <tr><td>Mayara Simões</td><td><a href="https://www.linkedin.com/in/mayara-simoes">LinkedIn</a></td><td><a href="https://github.com/majhara">GitHub</a></td></tr>
-<tr><td>Renata Perez</td><td><a href=""> LinkedIn </a></td><td><a href="https://github.com/Renata-Perez">GitHub</a></td></tr></table>
+<tr><td>Renata Perez</td><td><a href="https://www.linkedin.com/in/renata-gomes-perez/"> LinkedIn </a></td><td><a href="https://github.com/Renata-Perez">GitHub</a></td></tr></table>
    
      
    
