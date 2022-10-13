@@ -33,10 +33,11 @@ async def create_new_product(product: ProductSchema = Body(
     
     ):
     result = await service_create_new_product(product)
-    if result == True:
-        return {"message": "product successfully created"}
-    else:
-        raise HTTPException(status_code=409, detail="A product with the same name or code already exists")
+    if result['status'] == False:
+        raise HTTPException(status_code=422, detail=result['message'])
+    return {"product successfully created"}
+
+        
   
         
 @routes_products.get("/{code}",
@@ -52,15 +53,14 @@ async def get_product_by_code(code: str):
 
     
 @routes_products.put("/update/{code}")
-async def update_product(product: ProductUpdatedSchema=Body(
+async def update_product(product_code, product: ProductUpdatedSchema=Body(
     example={
             "name": "A new name for the product (Optional)",
             "description": "a brief description of the product (Optional)",
             "price": "A value greater than 0.01 (Optional)",
             "image": "a URL to the product image (Optional)",
-            "code": "Product bar code (Required)",
             "category": "Product category: Choose among the following categories: jewelry, semi-jewel or costume jewelry (Optional)"})):
-   result = await service_update_product(product)
+   result = await service_update_product(product_code, product)
    if result == False:
        raise HTTPException(status_code=409, detail="Product not found. Change product code and try again")
    return {'message': 'Product updated successfully'}  

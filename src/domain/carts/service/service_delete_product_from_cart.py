@@ -8,10 +8,9 @@ async def service_delete_product_from_cart(user_email, product_code, product_qua
   
     cart_searched = await service_get_open_carts_by_user_email(user_email)
     if cart_searched == None:
-        return {'No open carts found for this email address'}
-    
+        return {'status': False, 'message': 'No open carts found for this email address'}
     await delete_product_from_cart(cart_searched, product_code)
     cart_update = await service_calc_total_price(cart_searched)
-    return cart_update
+    return {'status': False, 'message': 'No open carts found for this email address'}
 
     

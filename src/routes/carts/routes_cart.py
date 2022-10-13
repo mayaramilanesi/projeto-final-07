@@ -38,15 +38,15 @@ async def insert_product_in_cart(user_email: EmailStr, product_code: str, produc
             raise HTTPException(status_code=404, detail=cart['message'])
         return {"Product successfully inserted"}
 
-# @routes_cart.put("/delete/{code}",
-#     summary="Deleting a product from an existing open cart", 
-#     description="Route do delete a product from an existing open cart",
-#     status_code=status.HTTP_200_OK)
-# async def delete_product_from_cart(user_email: EmailStr, product_code: str, product_quantity: int):
-#     cart = await service_delete_product_from_cart(user_email, product_code, product_quantity)
-#     if cart == False:
-#         raise Exception
-#     return {f'product successfully inserted'}
+@routes_cart.put("/delete/{code}",
+    summary="Deleting a product from an existing open cart", 
+    description="Route do delete a product from an existing open cart",
+    status_code=status.HTTP_200_OK)
+async def delete_product_from_cart(user_email: EmailStr, product_code: str, product_quantity: int):
+    cart = await service_delete_product_from_cart(user_email, product_code, product_quantity)
+    if cart['status'] == False:
+        raise  HTTPException(status_code=422, detail=cart['message'])
+    return {f'product successfully deleted'}
 
 
 @routes_cart.delete("/delete/{email}",

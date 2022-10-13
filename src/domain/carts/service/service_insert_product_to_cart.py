@@ -26,7 +26,7 @@ async def service_insert_product_to_cart(user_email, product_code, product_quant
         
     new_product = ProductCartSchema(
         name=product_searched['name'],
-        price=(product_searched['price']['$numberDecimal']),
+        price=(product_searched['price']),
         quantity=product_quantity,
         code=product_searched['code'])    
         
